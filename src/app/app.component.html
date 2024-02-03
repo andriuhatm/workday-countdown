@@ -1,0 +1,52 @@
+<section class="bg-gray-100 pb-6 pt-6">
+  <div class="container mx-auto px-4">
+    <div class="-m-4 flex flex-wrap justify-center">
+      <div class="w-full p-4 md:flex-1">
+        <div class="flex h-full flex-col items-center justify-center rounded-3xl bg-white p-8 text-center">
+          <div class="max-w-lg">
+
+            <h5 *ngIf="timerIsRunning">{{ this.startTime | date : "YYYY-MM-dd" }}</h5>
+            <h5 *ngIf="timerIsRunning">Start time: {{ this.startTime | date : "HH:mm:ss" }}</h5>
+            <h5 *ngIf="timerIsRunning">End time: {{ this.endTime | date : "HH:mm:ss" }}</h5>
+
+            <div *ngIf="!timerIsRunning" class="-m-2 flex flex-wrap justify-center">
+              <div class="w-full p-2 md:w-auto">
+                <button (click)="runTimer()"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Start day
+                </button>
+              </div>
+            </div>
+            <br>
+            <div *ngIf="timerIsRunning" class="mb-8 text-xl font-bold">
+              <div *ngIf="(timeLeft$ | async) as t"
+                   class="text-6xl text-center flex w-full items-center justify-center">
+                <div class="w-24 mx-1 p-2 text-gray-500 rounded-lg">
+                  <div class="font-mono leading-none">{{ t.hoursToDday }}</div>
+                  <div class="font-mono uppercase text-sm leading-none">Hours</div>
+                </div>
+                <div class="w-24 mx-1 p-2 text-gray-500 rounded-lg">
+                  <div class="font-mono leading-none">{{ t.minutesToDday }}</div>
+                  <div class="font-mono uppercase text-sm leading-none">Minutes</div>
+                </div>
+                <div class="w-24 mx-1 p-2 text-gray-500 rounded-lg">
+                  <div class="font-mono leading-none">{{ t.secondsToDday }}</div>
+                  <div class="font-mono uppercase text-sm leading-none">Seconds</div>
+                </div>
+              </div>
+
+              <div class="w-full mt-10 p-2 md:w-auto">
+                <button (click)="clearTimer()"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Clear
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

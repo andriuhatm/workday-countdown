@@ -1,0 +1,15 @@
+{
+  "name": "Workday Countdown",
+  "description": "Simple work day countdown",
+  "version": "1.0",
+  "author": "Adrian Cebanica",
+  "manifest_version": 3,
+  "permissions": [],
+  "icons": {
+    "32": "assets/logo.png",
+
+  },
+  "action": {
+    "default_popup": "index.html"
+  }
+}
